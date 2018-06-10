@@ -1,0 +1,18 @@
+%h1 Listing Projects
+
+%table
+  .container-fluid
+    .table-responsive
+      .table
+        %thead
+          %tr
+            %th Id
+            %th Name
+            %th show
+
+        %tbody
+          - @projects.each do |project|
+            %tr
+              %td= project.id
+              %td= project.Name
+              %td= link_to 'Show', project_path(project)
