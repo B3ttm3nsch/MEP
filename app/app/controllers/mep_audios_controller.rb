@@ -1,4 +1,4 @@
-class MepAudiosController < ActionController::Base
+class MepAudiosController < ApplicationController
   def index
     @project_partial = BsagProjectPartial.find(params[:project_id])
     @mep_audios = @project_partial.mep_audios.all
