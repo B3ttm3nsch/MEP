@@ -1,3 +1,5 @@
+- disabled ||= false
+
 = form_for @mep_audio, url: {action: action_name}, html: {class: "form-group"} do |form|
   - if @mep_audio.errors.any?
     .alert.alert-warning
@@ -8,127 +10,127 @@
         - @mep_audio.errors.full_messages.each do |msg|
           %li= msg
   .row
-    .container.group
-      .form-group.col-xs-12
+    .group
+      .col-xs-12
         .form-group.col-xs-6.col-md-3
           .row
-            = form.label :bsag_mep_version_id, "Audiotyp", class: 'col-12'
+            = form.label :bsag_mep_version_id, "Audiotyp"
           .row
-            = form.collection_select :bsag_audio_type_id, BsagAudioType.order(:id),:id,:name, class: 'form-control col-12'
+            = form.collection_select :bsag_audio_type_id, BsagAudioType.order(:id), :id, :name, {}, { class: "form-control", :disabled => disabled }
         .form-group.col-xs-6.col-md-3
           .row
-            = form.label :bsag_audio_format_id, "Audioformat", class: 'col-12'
+            = form.label :bsag_audio_format_id, "Audioformat"
           .row
-            = form.collection_select :bsag_audio_format_id, BsagAudioFormat.order(:id),:id,:name, class: 'form-control col-12'
+            = form.collection_select :bsag_audio_format_id, BsagAudioFormat.order(:id), :id, :name, {}, { class: "form-control", :disabled => disabled }
         .form-group.col-xs-12.col-md-6
           .row
-            = form.label :receiving_date, class: 'col-12'
+            = form.label :receiving_date
           .row
-            = form.date_select :receiving_date, class: 'form-control col-12'
+            = form.date_select(:receiving_date, {}, { class: "form-control", :disabled => disabled })
   .row
-    .container.group
-      .form-group.col-xs-12
+    .group
+      .col-xs-12
         .form-group.col-xs-6.col-md-3
           .row
-            = form.label :bsag_mep_version_id, "Audio Version", class: 'col-12'
+            = form.label :bsag_mep_version_id, "Audio Version"
           .row
-            = form.collection_select :bsag_mep_version_id, BsagMepVersion.order(:id),:id,:name, class: 'form-control'
+            = form.collection_select(:bsag_mep_version_id, BsagMepVersion.order(:id), :id, :name, {}, { class: "form-control", :disabled => disabled })
         .form-group.col-xs-6.col-md-3
           .row
-            = form.label :version_number, "Versionsnummer", class: 'col-12'
+            = form.label :version_number, "Versionsnummer"
           .row
-            = form.select :version_number, (0..9), class: 'form-control'
+            = form.select :version_number, (0..9), {}, { class: "form-control", :disabled => disabled }
         .form-group.col-xs-12.col-md-6
           .row
-            = form.label :version_name_ext, "Externer Name", class: 'col-2'
+            = form.label :version_name_ext, "Externer Name"
           .row
-            = form.text_field :version_name_ext, class: 'form-control text_area'
+            = form.text_field :version_name_ext, { class: "form-control text_area", :disabled => disabled }
   .row
-    .container.group
-      .form-group.col-xs-12
-        .form-group.col-xs-3
+    .group
+      .col-xs-12
+        .form-group.col-xs-6.col-md-3
           .row
             = form.label :bsag_audio_speed_id, "Geschwindigkeit"
           .row
-            = form.collection_select :bsag_audio_speed_id, BsagAudioSpeed.order(:id),:id,:speed, class: 'form-control'
-        .form-group.col-xs-3
+            = form.collection_select :bsag_audio_speed_id, BsagAudioSpeed.order(:id), :id, :speed, {}, { class: "form-control", :disabled => disabled }
+        .form-group.col-xs-6.col-md-3
           .row
             = form.label :dbtp_max
           .row
-            = form.text_field :dbtp_max, class: 'form-control text_area'
-        .form-group.col-xs-3
+            = form.text_field :dbtp_max, { class: "form-control text_area", :disabled => disabled }
+        .form-group.col-xs-6.col-md-3
           .row
             = form.label :lra
           .row
-            = form.text_field :lra, class: 'form-control text_area'
-        .form-group.col-xs-3
+            = form.text_field :lra, { class: "form-control text_area", :disabled => disabled }
+        .form-group.col-xs-6.col-md-3
           .row
             = form.label :lufs
           .row
-            = form.text_field :lufs, class: 'form-control text_area'
+            = form.text_field :lufs, { class: "form-control text_area", :disabled => disabled }
   .row
-    .container.group
-      .form-group.col-xs-12
-        .form-group.col-xs-3
+    .group
+      .col-xs-12
+        .form-group.col-xs-12.col-md-3
           .row
             = form.label :is_complete, "Vollständig"
           .row
-            = form.check_box :is_complete, class: 'form-control'
-        .form-group.col-xs-9
+            = form.check_box :is_complete, {class: "form-control no-border", :disabled => disabled}
+        .form-group.col-xs-12.col-md-9
           .row
             = form.label :is_complete_comment, "Kommentar"
           .row
-            = form.text_area :is_complete_comment, class: 'form-control text_area'
+            = form.text_area :is_complete_comment, { class: "form-control text_area", :disabled => disabled }
   .row
-    .container.group
-      .form-group.col-xs-12
-        .form-group.col-xs-3
+    .group
+      .col-xs-12
+        .form-group.col-xs-12.col-md-3
           .row
             = form.label :is_in_sync, "Synchron"
           .row
-            = form.check_box :is_in_sync
-        .form-group.col-xs-9
+            = form.check_box :is_in_sync, {class: "form-control no-border", :disabled => disabled}
+        .form-group.col-xs-12.col-md-9
           .row
             = form.label :is_in_sync_comment, "Kommentar"
           .row
-            = form.text_area :is_in_sync_comment, class: 'form-control text_area'
+            = form.text_area :is_in_sync_comment, { class: "form-control text_area", :disabled => disabled }
   .row
-    .container.group
-      .form-group.col-xs-12
-        .form-group.col-xs-3
+    .group
+      .col-xs-12
+        .form-group.col-xs-12.col-md-3
           .row
             = form.label :bsag_channel_error_id, "Kanalfehler"
           .row
-            = form.collection_select :bsag_channel_error_id, BsagChannelError.order(:id),:id,:name
-        .form-group.col-xs-9
+            = form.collection_select :bsag_channel_error_id, BsagChannelError.order(:id), :id, :name, {}, { class: "form-control", :disabled => disabled }
+        .form-group.col-xs-12.col-md-9
           .row
             = form.label :channel_error_comment, "Kommentar"
           .row
-            = form.text_area :channel_error_comment, class: 'form-control text_area'
+            = form.text_area :channel_error_comment, { class: "form-control text_area", :disabled => disabled }
   .row
-    .container.group
-      .form-group.col-xs-12
-        .form-group.col-xs-3
+    .group
+      .col-xs-12
+        .form-group.col-xs-12.col-md-3
           .row
-            = form.label :bsag_audio_fault_id, "Kanalfehler"
+            = form.label :bsag_audio_fault_id, "Störung"
           .row
-            = form.collection_select :bsag_audio_fault_id, BsagAudioFault.order(:id),:id,:name
-        .form-group.col-xs-9
+            = form.collection_select :bsag_audio_fault_id, BsagAudioFault.order(:id), :id, :name, {}, { class: "form-control", :disabled => disabled }
+        .form-group.col-xs-12.col-md-9
           .row
             = form.label :audio_fault_comment, "Kommentar"
           .row
-            = form.text_area :audio_fault_comment, class: 'form-control text_area'
+            = form.text_area :audio_fault_comment, { class: "form-control text_area", :disabled => disabled }
   .row
-    .container.group
-      .form-group.col-xs-12
-        .form-group.col-xs-3
+    .group
+      .col-xs-12
+        .form-group.col-xs-12.col-md-3
           .row
             = form.label :bsag_mep_evaluation_id, "Bewertung"
           .row
-            = form.collection_select :bsag_mep_evaluation_id, BsagMepEvaluation.order(:id),:id,:name
-        .form-group.col-xs-9
+            = form.collection_select :bsag_mep_evaluation_id, BsagMepEvaluation.order(:id), :id, :name, {}, { class: "form-control", :disabled => disabled }
+        .form-group.col-xs-12.col-md-9
           .row
             %label
               Änderungen speichen
           .row
-            = form.button :Speichern, name: :create, class: 'btn btn-primary btn-block'
+            = form.button :Speichern, name: :create, disabled: disabled, class: "btn btn-primary btn-block"
