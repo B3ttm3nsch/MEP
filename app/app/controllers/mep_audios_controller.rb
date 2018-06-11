@@ -43,6 +43,7 @@ class MepAudiosController < ApplicationController
   end
 
   private
+
   def mep_audio_params
     params.require(:bsag_mep_audio).permit( :bsag_project_partial_id,
                                             :bsag_audio_type_id,
