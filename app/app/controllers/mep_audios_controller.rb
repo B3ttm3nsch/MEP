@@ -17,6 +17,7 @@ class MepAudiosController < ApplicationController
   end
 
   def create
+    binding.pry
     @project_partial = BsagProjectPartial.find(params[:project_partial_id])
     @mep_audio = @project_partial.mep_audios.create(mep_audio_params)
     if @mep_audio.save

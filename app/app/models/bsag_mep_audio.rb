@@ -20,4 +20,6 @@ class BsagMepAudio < ActiveRecord::Base
                       :channel_error_comment,
                       :audio_fault_comment,
                       :maximum => 255
+
+  validates :bsag_audio_fault_id, :presence => true
 end

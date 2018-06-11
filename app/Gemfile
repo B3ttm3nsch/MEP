@@ -60,7 +60,7 @@ gem 'haml-rails'
 gem 'thin'
 
 # Angular gems
-#gem 'bower-rails'
+# gem 'bower-rails'
 # gem 'angular-rails-templates'
 # gem 'angular-ui-bootstrap-rails'
 
