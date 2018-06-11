@@ -50,6 +50,9 @@ end
 
 # Customized
 
+# Datepicker
+gem 'bootstrap-datepicker-rails'
+
 # Use Haml
 gem 'haml-rails'
 

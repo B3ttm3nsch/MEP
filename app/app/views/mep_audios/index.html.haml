@@ -1,22 +1,24 @@
-%h1 MEPs
-
-%table
-  .container-fluid
-    .table-responsive
-      .table
-        %thead
-          %tr
-            %th ID
-            %th Show
-            %td Edit
-            %td Destroy
-
-        %tbody
-          - @mep_audios.each do |mep_audio|
-            %tr
-              %td= mep_audio.id
-              %td= link_to 'Show', project_project_partial_mep_audio_path(mep_audio.project_partial.project, mep_audio.project_partial, mep_audio)
-              %td= link_to 'Edit', edit_project_project_partial_mep_audio_path(mep_audio.project_partial.project, mep_audio.project_partial, mep_audio)
-              %td= button_to 'delete', project_project_partial_mep_audio_path(mep_audio.project_partial.project, mep_audio.project_partial, mep_audio), method: :delete, data: { confirm: 'Are you sure?' }
-
-= link_to 'New MEP', new_project_project_partial_mep_audio_path(@project_partial.project_id, @project_partial)
+.group
+  %h1.text-center
+    Materialeingangsprüfungberichte
+.group
+  %table.table.table-striped
+    %thead
+      %th Audiotyp
+      %th Version
+      %th Bewertung
+      %th Show
+      %th Edit
+      %th Delete
+    %tbody
+      - @mep_audios.order(:bsag_audio_type_id, :bsag_mep_version_id, :version_number).each do |mep_audio|
+        %tr
+          %td= mep_audio.audio_type.name
+          %td #{mep_audio.mep_version.name} #{ mep_audio.version_number}
+          %td= mep_audio.evaluation.name
+          %td= link_to 'Anzeigen', project_project_partial_mep_audio_path(mep_audio.project_partial.project, mep_audio.project_partial, mep_audio)
+          %td= link_to 'Bearbeiten', edit_project_project_partial_mep_audio_path(mep_audio.project_partial.project, mep_audio.project_partial, mep_audio)
+          %td= link_to 'Löschen', project_project_partial_mep_audio_path(mep_audio.project_partial.project, mep_audio.project_partial, mep_audio), method: :delete, data: { confirm: 'Are you sure?' }
+.group
+  .text-right
+    = link_to 'Neuer Bericht', new_project_project_partial_mep_audio_path(@project_partial.project_id, @project_partial)

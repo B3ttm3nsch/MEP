@@ -2,8 +2,6 @@ class MepAudiosController < ApplicationController
   def index
     @project_partial = BsagProjectPartial.find(params[:project_id])
     @mep_audios = @project_partial.mep_audios.all
-    # @mep_audios = BsagProjectPartial.find(params[:project_partial_id]).mep_audios
-    #@project_partials = Tblproject.find(params[:project_id]).project_partials
   end
 
   def show
