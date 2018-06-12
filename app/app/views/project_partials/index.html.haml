@@ -15,6 +15,6 @@
             %tr
               %td= project_partial.id
               %td= project_partial.title
-              %td= link_to 'Show', project_project_partial_path(project_partial.project_id, project_partial.id)
+              %td= link_to 'Show', project_partial_path(project_partial)
 %p
   = link_to 'Back', projects_path

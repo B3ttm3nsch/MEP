@@ -1,6 +1,6 @@
 .group
-  %h1.text-center
-    Materialeingangsprüfungberichte
+  %h1.text-center Materialeingangsprüfungberichte
+
 .group
   %table.table.table-striped
     %thead
@@ -14,12 +14,11 @@
       - @mep_audios.order(:bsag_audio_type_id, :bsag_mep_version_id, :version_number).each do |mep_audio|
         %tr
           %td= mep_audio.audio_type.name
-          %td #{mep_audio.mep_version.name} #{ mep_audio.version_number}
+          %td #{mep_audio.mep_version.name} #{mep_audio.version_number}
           %td= mep_audio.evaluation.name
-          %td= link_to 'Anzeigen', project_project_partial_mep_audio_path(mep_audio.project_partial.project, mep_audio.project_partial, mep_audio)
-          %td= link_to 'Bearbeiten', edit_project_project_partial_mep_audio_path(mep_audio.project_partial.project, mep_audio.project_partial, mep_audio)
-          %td= link_to 'Löschen', project_project_partial_mep_audio_path(mep_audio.project_partial.project, mep_audio.project_partial, mep_audio),
-                                  method: :delete, data: { confirm: 'Are you sure?' }
+          %td= link_to 'Anzeigen', mep_audio_path(mep_audio)
+          %td= link_to 'Bearbeiten', edit_mep_audio_path(mep_audio)
+          %td= link_to 'Löschen', mep_audio_path(mep_audio), method: :delete, data: { confirm: 'Are you sure?' }
+
 .group
-  .text-right
-    = link_to 'Neuer Bericht', new_project_project_partial_mep_audio_path(@project_partial.project_id, @project_partial)
+  .text-right= link_to 'Neuer Bericht', new_project_partial_mep_audio_path(@project_partial)
