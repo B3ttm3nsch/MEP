@@ -32,7 +32,7 @@ class MepAudiosControllerTest < ActionController::TestCase
     mep = bsag_mep_audios(:one)
     #project = tblprojects(:one)
     #partial = bsag_project_partials(:one)
-    get project_partial_mep_audios_url(mep.bsag_project_partial_id)
+    get project_partial_mep_audios_path(1), headers: { "HTTP_REFERER" => "http://localhost:3000/" }
     assert_responds :succes
   end
 end
