@@ -15,9 +15,9 @@
       - @mep_audios.order(:bsag_audio_type_id, :bsag_mep_version_id, :version_number).each do |mep_audio|
         %tr
           %td= mep_audio.audio_type.name
+          %td= mep_audio.audio_format.name
           %td #{mep_audio.mep_version.name} #{mep_audio.version_number}
           %td= mep_audio.evaluation.name
-          %td= mep_audio.audio_format.name
           %td= link_to 'Anzeigen', mep_audio_path(mep_audio)
           %td= link_to 'Bearbeiten', edit_mep_audio_path(mep_audio)
           %td= link_to 'Löschen', mep_audio_path(mep_audio), method: :delete, data: { confirm: 'Are you sure?' }

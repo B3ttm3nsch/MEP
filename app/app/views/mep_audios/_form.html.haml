@@ -33,7 +33,7 @@
       .col-xs-12
         .form-group-row
           .col-xs-6.col-md-3
-            = form.label :bsag_mep_version_id, "Audio Version"
+            = form.label :bsag_mep_version_id, "Audioversion"
             = form.collection_select(:bsag_mep_version_id, BsagMepVersion.order(:id), :id, :name,
                                      {}, { class: "form-control", disabled: disabled })
         .form-group-row
@@ -54,15 +54,15 @@
                                      {}, { class: "form-control", disabled: disabled }
         .form-group-row
           .col-xs-6.col-md-3
-            = form.label :dbtp_max
+            = form.label :dbtp_max, "dBTP max"
             = form.text_field :dbtp_max, { class: "form-control text_area", disabled: disabled }
         .form-group-row
           .col-xs-6.col-md-3
-            = form.label :lra
+            = form.label :lra, "LRA"
             = form.text_field :lra, { class: "form-control text_area", disabled: disabled }
         .form-group-row
           .col-xs-6.col-md-3
-            = form.label :lufs
+            = form.label :lufs, "LUFS"
             = form.text_field :lufs, { class: "form-control text_area", disabled: disabled }
   .row
     .group
@@ -91,7 +91,7 @@
       .col-xs-12
         .form-group-row
           .col-xs-12.col-md-3
-            = form.label :bsag_channel_error_id, "Kanalfehler"
+            = form.label :bsag_channel_error_id, "Kanäle"
             = form.collection_select :bsag_channel_error_id, BsagChannelError.order(:id), :id, :name,
                                      {}, { class: "form-control", disabled: disabled }
         .form-group-row
