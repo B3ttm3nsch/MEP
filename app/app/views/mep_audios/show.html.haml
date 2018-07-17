@@ -2,7 +2,7 @@
   .h1.text-center
     Bericht anzeigen
 
-= render 'form', action_name: "update", :disabled => true
+= render 'form', action_name: "update", disabled: true
 
 .group
-  = link_to 'zurück', project_project_partial_mep_audios_path
+  = link_to 'zurück', project_partial_mep_audios_path(@mep_audio.bsag_project_partial_id)

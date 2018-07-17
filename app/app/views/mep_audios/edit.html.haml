@@ -1,8 +1,7 @@
 .group
-  .h1.text-center
-    Bericht bearbeiten
+  .h1.text-center Bericht bearbeiten
 
 = render 'form', action_name: "update"
 
 .group
-  = link_to 'zurück', project_project_partial_mep_audios_path
+  = link_to 'zurück', project_partial_mep_audios_path(@mep_audio.bsag_project_partial_id)
