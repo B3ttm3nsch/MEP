@@ -22,6 +22,9 @@ class BsagMepAudio < ActiveRecord::Base
             allow_blank: true,
             format: { with: /\A[+-]?\d{0,2}(?!\d)(.\d{0,1})?\z/ }
   validate :receiving_date_cannot_be_in_the_future if validates_presence_of :receiving_date
+
+  private
+  
   def receiving_date_cannot_be_in_the_future
     errors.add(:receiving_date, "can't be in the future") if receiving_date.presence && receiving_date > Date.today
   end

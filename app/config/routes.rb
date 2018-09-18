@@ -55,10 +55,19 @@ Rails.application.routes.draw do
   #   end
   #
 
-  resources :projects do
-    resources :project_partials, only: [:index, :new, :create]
+#  resources :projects do
+#    resources :project_partials, only: [:index, :new, :create]
+#    end
+#  resources :project_partials, only: [:show, :edit, :update, :destroy] do
+#    resources :mep_audios, only: [:index, :new, :create]
+#  end
+ # resources :mep_audios, only: [:show, :edit, :update, :destroy]
+#
+#  root 'projects#index'
+  resources :projects, only: [:index, :show] do
+    resources :project_partials, only: [:index]
     end
-  resources :project_partials, only: [:show, :edit, :update, :destroy] do
+  resources :project_partials, only: [:show] do
     resources :mep_audios, only: [:index, :new, :create]
   end
   resources :mep_audios, only: [:show, :edit, :update, :destroy]
